@@ -102,20 +102,19 @@ const Gallery = () => {
               <span className="text-sm tracking-widest uppercase">No Archives Found.</span>
             </div>
           ) : (
-            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6 animate-in fade-in duration-700">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 animate-in fade-in duration-700">
               {photos.map((photo) => (
                 <div
                   key={photo.id}
-                  className="relative group rounded-2xl overflow-hidden break-inside-avoid bg-white/5 cursor-pointer"
+                  className="relative group rounded-2xl overflow-hidden bg-white/5 cursor-pointer aspect-[3/4]"
                   onClick={(e) => openLightbox(photo, e)}
                 >
-                  <div className={`w-full overflow-hidden ${photo.height || 'h-72'} rounded-2xl`}>
-                    <img
-                      src={photo.url}
-                      alt={photo.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
+                  <img
+                    src={photo.url}
+                    alt={photo.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
 
                   {/* Liquid Glass Overlay on Hover */}
                   <div className="absolute inset-0 liquid-glass opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
