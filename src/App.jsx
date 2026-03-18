@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './components/Layout';
-import Admin from './components/Admin';
+import AdminGate from './components/AdminGate';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      {isAdmin ? <Admin /> : <Layout />}
+      {isAdmin ? <AdminGate /> : <Layout />}
     </>
   );
 }
